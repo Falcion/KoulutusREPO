@@ -5,7 +5,7 @@
 using namespace std;
 
 void triangle::show() {
-	cout << "[TRIANGLE] SIDES: " << this->a << ", " << this->b << ", " << this->c << ";" << endl;
+	cout << "[TRIANGLE] Sides of current triangle (ABC): " << this->a << ", " << this->b << ", " << this->c << ";" << endl;
 }
 
 float triangle::perimeter() {

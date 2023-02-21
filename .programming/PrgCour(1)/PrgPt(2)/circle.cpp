@@ -15,7 +15,7 @@ circle::circle(float radius, float x_cntr, float y_cntr) {
 }
 
 void circle::show() {
-	cout << "[CIRCLE] R: " << this->radius << ";" << endl;
+	cout << "[CIRCLE] Radius: " << this->radius << ";" << endl;
 	cout << "[CIRCLE] Center coords: (" << this->x_center << ", " << this->y_center << ");" << endl;
 
 	cout << "[CIRCLE] Square: " << square() << ";" << endl;
@@ -49,8 +49,8 @@ bool circle::check_circle(float r, float x_cntr, float y_cntr) {
 
 void circle::set_circle(float r, float x_cntr, float y_cntr) {
 	this->radius = r;
-	this->x_center = x_center;
-	this->y_center = y_center;
+	this->x_center = x_cntr;
+	this->y_center = y_cntr;
 }
 
 float circle::square() {
