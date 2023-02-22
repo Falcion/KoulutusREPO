@@ -39,7 +39,7 @@ int main()
 
         cin >> r1 >> x1 >> y1;
 
-        cout << "[CIRCLE] Is given circle intersected with current: " << circles[i].check_circle(rn, xn_cntr, yn_cntr) << ";" << endl;
+        cout << "[CIRCLE] Is given circle intersected with current: " << circles[i].check_circle(r1, x1, y1) << ";" << endl;
     }
 }
  

@@ -13,7 +13,7 @@ double triangle::perimetr() {
 }
 
 double triangle::square() {
-	double per = perimeter() / 2;
+	double per = perimetr() / 2;
 
 	double square = sqrt(per * (per - a) * (per - b) * (per - c));
 

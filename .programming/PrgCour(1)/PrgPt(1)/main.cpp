@@ -29,7 +29,7 @@ int main()
     for (int i = 0; i < 3; i++) {
         triangles[i].show();
 
-        cout << "[TRIANGLE] Perimeter (#" << i + 1 << "): " << triangles[i].perimeter() << ";" << endl;
+        cout << "[TRIANGLE] Perimeter (#" << i + 1 << "): " << triangles[i].perimetr() << ";" << endl;
         cout << "[TRIANGLE] Square (#" << i + 1 << "): " << triangles[i].square() << ";" << endl;
     }
 }

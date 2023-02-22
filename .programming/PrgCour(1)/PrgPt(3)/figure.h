@@ -5,7 +5,7 @@ private:
 	float S;
 	float P;
 	float s1, s2, s3, s4;
-	float cos;
+	float d1, d2;
 	float calc_s(float x1, float x2, float y1, float y2);
 public:
 	figure(float x1, float x2, float x3, float x4,

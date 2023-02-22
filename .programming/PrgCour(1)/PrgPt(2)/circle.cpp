@@ -31,7 +31,7 @@ bool circle::triangle_around(float a, float b, float c) {
 
 	tr.set(a, b, c);
 
-	float rad = tr.square() / (tr.perimeter() / 2);
+	float rad = tr.square() / (tr.perimetr() / 2);
 
 	return (rad == radius);
 }

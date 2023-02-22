@@ -9,11 +9,11 @@ void triangle::show() {
 }
 
 double triangle::perimetr() {
-	return (a + b + c);
+	return (this->a + this->b + this->c);
 }
 
 double triangle::square() {
-	double per = perimeter() / 2;
+	double per = perimetr() / 2;
 
 	double square = sqrt(per * (per - a) * (per - b) * (per - c));
 
