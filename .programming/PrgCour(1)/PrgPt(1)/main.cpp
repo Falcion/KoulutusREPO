@@ -8,9 +8,7 @@ int main()
 {
     triangle triangles[3];
 
-    double a;
-    double b;
-    double c;
+    double a, b, c;
 
     for (int i = 0; i < 3; i++) {
         cout << "Enter three sides length for triangle #" << i + 1 << " separated by space: ";

@@ -1,12 +1,10 @@
 class triangle {
 private:
-	float a;
-	float b;
-	float c;
+	double a, b, c;
 public:
 	void show();
-	float perimeter();
-	float square();
+	double perimeter();
+	double square();
 	bool exst_tr();
-	void set(float a, float b, float c);
+	void set(double a, double b, double c);
 };

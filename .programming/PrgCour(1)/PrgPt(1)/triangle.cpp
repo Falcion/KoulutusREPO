@@ -5,27 +5,26 @@
 using namespace std;
 
 void triangle::show() {
-	cout << "[TRIANGLE] Sides of current triangle (ABC): " << this->a << ", " << this->b << ", " << this->c << ";" << endl;
+	cout << "[TRIANGLE] Sides of current triangle (ABC): " << a << ", " << b << ", " << c << ";" << endl;
 }
 
-float triangle::perimeter() {
-	return (this->a + this->b + this->c);
+double triangle::perimetr() {
+	return (a + b + c);
 }
 
-float triangle::square() {
-	float per = this->perimeter() / 2;
+double triangle::square() {
+	double per = perimeter() / 2;
 
-	float square = sqrtf(per * (per - this->a) * (per - this->b) * (per - this->c));
+	double square = sqrt(per * (per - a) * (per - b) * (per - c));
 
 	return square;
 }
 
 bool triangle::exst_tr() {
-	return ((this->a + this->b > this->c) && (this->b + this->c > this->a) && (this->a + this->c > this->b));
+	return ((a + b > c) && (b + c > a) && (a + c > b));
 }
-
-void triangle::set(float a, float b, float c) {
-	this->a = a;
-	this->b = b;
-	this->c = c;
+void triangle::set(double a1, double b1, double c1) {
+	a = a1;
+	b = b1;
+	c = c1;
 }
