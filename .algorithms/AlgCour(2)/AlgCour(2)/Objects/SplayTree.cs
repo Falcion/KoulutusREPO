@@ -117,5 +117,34 @@ namespace AlgCour_2_.Objects
 
             return newnode; // newnode becomes new root
         }
+
+        public static Node Delete(Node root, int key)
+        {
+            Node temp;
+
+            if (root == null)
+                return null;
+
+            root = Splay(root, key);
+
+            if (key != root.key)
+                return root;
+
+            if (root.left == null)
+            {
+                temp = root;
+                root = root.right;
+            }
+
+            // Else if left child exits
+            else
+            {
+                temp = root;
+                root = Splay(root.left, key);
+                root.right = temp.right;
+            }
+
+            return root;
+        }
     }
 }

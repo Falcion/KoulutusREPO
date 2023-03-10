@@ -312,7 +312,7 @@ namespace AlgCour_2_.Objects
             return node;
         }
 
-        private void rbTransplant(RBNode node1, RBNode? node2)
+        private void rbTransplant(RBNode node1, RBNode node2)
         {
             if (node1.parent == null)
                 root = node2;
@@ -321,7 +321,8 @@ namespace AlgCour_2_.Objects
             else
                 node1.parent.right = node2;
 
-            node2.parent = node1.parent;
+            if(node2 != null)
+                node2.parent = node1.parent;
         }
 
         /// <summary>

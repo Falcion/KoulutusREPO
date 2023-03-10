@@ -7,24 +7,34 @@ namespace AlgCour_2_
         public static void Main(string[] args)
         {
             //TZ1();
-            Console.WriteLine("-------------------");
+            //Console.WriteLine("-------------------");
             //TZ2();
-            Console.WriteLine("-------------------");
+            //Console.WriteLine("-------------------");
             //TZ45();
+            TZ6();
         }
 
         private static void TZ1()
         {
             AVLTree tree = new AVLTree();
+    
+            for(int i =0; i < 100; i++)
+            {
+                tree.root = tree.insert(tree.root, new Random().Next(0, 100));
+            }
 
-            tree.root = tree.insert(tree.root, 10);
-            tree.root = tree.insert(tree.root, 20);
-            tree.root = tree.insert(tree.root, 30);
-            tree.root = tree.insert(tree.root, 40);
-            tree.root = tree.insert(tree.root, 50);
-            tree.root = tree.insert(tree.root, 25);
+            DTBT(tree, tree.root);
 
-            AVLTree.DTBT(tree.root);
+        }
+
+        public static void DTBT(AVLTree tree, Node node)
+        {
+            if (node == null) return;
+
+            Console.Out.WriteLine(node + ", " + tree.getBalance(node));
+
+            DTBT(tree, node.left);
+            DTBT(tree, node.right);
         }
 
         private static void TZ2()
@@ -41,12 +51,12 @@ namespace AlgCour_2_
             tree.root = tree.insert(tree.root, 1);
             tree.root = tree.insert(tree.root, 2);
 
-            AVLTree.DTBT(tree.root);
+            DTBT(tree, tree.root);
 
-            Console.WriteLine("-------------------");
-            tree.root = tree.deleteNode(tree.root, 10);
+            Console.WriteLine("DELETE-------------------");
+            tree.root = tree.deleteNode(tree.root, 9);
 
-            AVLTree.DTBT(tree.root);
+            DTBT(tree, tree.root);
         }
 
         private static void TZ45()
@@ -74,9 +84,17 @@ namespace AlgCour_2_
             root.left.left = new(40);
             root.left.left.left = new(30);
             root.left.left.left.left = new(20);
+            NodeTreePattern.DTBT(root);
+
             root = SplayTree.Insert(root, 25);
 
             Console.WriteLine("-------------");
+
+            NodeTreePattern.DTBT(root);
+
+            Console.WriteLine("DELETE");
+
+            root = SplayTree.Delete(root, 20);
 
             NodeTreePattern.DTBT(root);
         }

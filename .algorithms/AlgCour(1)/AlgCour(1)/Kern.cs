@@ -12,7 +12,7 @@ namespace AT01
             this.Data = data;
         }
 
-        int Depth(Node? node)
+        public int Depth(Node? node)
         {
             if(node == null) return 0;
             else
@@ -28,35 +28,12 @@ namespace AT01
         }
 
         public int Data { get; set; }
-    }
 
-    public static class Kern
-    {
-        static Node Inject(Node? root, int data)
-        {
-            if (root == null) root = new Node(data);
-            else if (data <= root.Data) root.Left = Inject(root.Left, data);
-            else if (data > root.Data) root.Right = Inject(root.Right, data);
-
-            return root;
-        }
-
-        static Node? Find(Node? node, int data)
-        {
-            if (node == null) return null;
-
-            if(node.Data == data) return node;
-            else if(node.Data < data) return Find(node.Right, data);
-            else if(node.Data > data) return Find(node.Left, data);
-
-            return node;
-        }
-
-        static void Delete(Node? node, int data)
+        public void Delete(Node? node, int data)
         {
             if (node == null) return;
 
-            if(node.Left == null && node.Right == null)
+            if (node.Left == null && node.Right == null)
             {
                 if (node.Data == data)
                 {
@@ -72,20 +49,20 @@ namespace AT01
 
             Node? temp = null, key_node = null;
 
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 temp = queue.Peek();
                 queue.Dequeue();
 
-                if(temp.Data == data)
-                    key_node= temp;
-                if(temp.Left != null)
+                if (temp.Data == data)
+                    key_node = temp;
+                if (temp.Left != null)
                     queue.Enqueue(temp.Left);
-                if(temp.Right != null)
+                if (temp.Right != null)
                     queue.Enqueue(temp.Right);
             }
 
-            if(key_node != null)
+            if (key_node != null)
             {
                 int x = temp!.Data;
 
@@ -137,6 +114,29 @@ namespace AT01
                 }
             }
         }
+    }
+
+    public static class Kern
+    {
+        static Node Inject(Node? root, int data)
+        {
+            if (root == null) root = new Node(data);
+            else if (data <= root.Data) root.Left = Inject(root.Left, data);
+            else if (data > root.Data) root.Right = Inject(root.Right, data);
+
+            return root;
+        }
+
+        static Node? Find(Node? node, int data)
+        {
+            if (node == null) return null;
+
+            if(node.Data == data) return node;
+            else if(node.Data < data) return Find(node.Right, data);
+            else if(node.Data > data) return Find(node.Left, data);
+
+            return node;
+        }
 
         static void DTBT(Node? node)
         {
@@ -171,7 +171,22 @@ namespace AT01
 
         public static void Main(string[] args)
         {
-            throw new NotImplementedException();
+            Node node = new Node(10);
+
+            node.Left = new(5);
+            node.Right = new(12);
+            node.Left.Left = new(4);
+            node.Left.Right = new(6);
+
+            Console.WriteLine(node.Depth(node));
+
+            Node fNode = Find(node, 9);
+
+            Console.WriteLine(fNode == null ? "NULL" : "NO");
+
+            node.Delete(node, 4);
+
+            DTBT(node);
         }
     }
 }

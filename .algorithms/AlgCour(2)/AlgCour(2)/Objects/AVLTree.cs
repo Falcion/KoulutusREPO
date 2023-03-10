@@ -1,6 +1,6 @@
 ﻿namespace AlgCour_2_.Objects
 {
-    public class AVLTree : NodeTreePattern
+    public class AVLTree
     {
         public Node root;
 
@@ -53,7 +53,7 @@
             return y;
         }
 
-        int getBalance(Node N)
+        public int getBalance(Node N)
         {
             if (N == null)
                 return 0;
@@ -79,7 +79,7 @@
             int balance = getBalance(node);
 
             // If this node becomes unbalanced
-            if (balance > 1 && key < node.left.key)
+            if (balance >= 1 && key < node.left.key)
                 return rightRotate(node);
 
             // Right Right
@@ -87,7 +87,7 @@
                 return leftRotate(node);
 
             // Left Right
-            if (balance > 1 && key > node.left.key)
+            if (balance >= 1 && key > node.left.key)
             {
                 node.left = leftRotate(node.left);
                 return rightRotate(node);
@@ -192,5 +192,7 @@
 
             return root;
         }
+
+        
     }
 }
